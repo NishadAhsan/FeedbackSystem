@@ -30,3 +30,10 @@
         "Interest": false
         }
     
+#### Things to improve
+This is list of things that I did here in a bad bad way that need to improved.
+
+- Setup proper appSettings and module system to include ConnectionStrings and other needed stuff to the needed class library.
+- Need to decouple Domain models from Database models.
+- Add validation to API requests, preferably using FluentValidationAPI.
+- Need to handle exceptions, Global custom exception with logging feature.
