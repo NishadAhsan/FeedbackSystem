@@ -12,7 +12,7 @@ namespace FeedbackSystem.Infrastructure.SQLRepository.Repositories
     private readonly string _connectionString;
     public CommentInterestsRepo()
     {
-      this._connectionString = "Data Source=DESKTOP-9JQOQ43\\SQLExpress;Initial Catalog=FeedbackDB; User Id=sa; Password=nishad0963;";
+      this._connectionString = "Data Source=MyServer;Initial Catalog=FeedbackDB; User Id=sa; Password=MyPassword;";
     }
     public void Add(CommentInterest commentInterest)
     {
