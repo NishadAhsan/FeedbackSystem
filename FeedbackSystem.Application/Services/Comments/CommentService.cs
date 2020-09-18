@@ -33,6 +33,11 @@ namespace FeedbackSystem.Application.Services.Comments
     {
       return _repo.GetAll();
     }
+    
+    public IEnumerable<Comment> GetAll(int postId)
+    {
+      return _repo.GetAll(postId);
+    }
 
     public void Save(Comment comment)
     {

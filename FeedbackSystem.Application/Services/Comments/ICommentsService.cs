@@ -8,6 +8,7 @@ namespace FeedbackSystem.Application.Services.Comments
     void Save(Comment post);
     Comment Get(int commentId);
     IEnumerable<Comment> GetAll();
+    IEnumerable<Comment> GetAll(int postId);
     void AddInterest(CommentInterest commentInterest);
   }
 }

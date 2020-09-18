@@ -21,6 +21,13 @@ namespace FeedbackSystem.WebAPI.Controllers
       return Ok(comments);
     }
 
+    [HttpGet("read/post/{postId:int:min(1)}")]
+    public IActionResult ReadAllCommentsByPostId(int postId)
+    {
+      var comments = _service.GetAll(postId);
+      return Ok(comments);
+    }
+
     [HttpGet("read/{commentId:int:min(1)}")]
     public IActionResult ReadPost(int commentId)
     {

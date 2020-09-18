@@ -9,6 +9,7 @@ namespace FeedbackSystem.Application.Repositories
     void Add(Comment comment);
     Comment Get(int commentId);
     List<Comment> GetAll();
+    List<Comment> GetAll(int postId);
     InterestCount GetInterestCount(int commentId);
   }
 }

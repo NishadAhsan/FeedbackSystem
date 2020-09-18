@@ -100,6 +100,42 @@ namespace FeedbackSystem.Infrastructure.SQLRepository.Repositories
       return comments;
     }
 
+    public List<Comment> GetAll(int postId)
+    {
+      List<Comment> comments = new List<Comment>();
+      using (SqlConnection connection = new SqlConnection(_connectionString))
+      {
+        using (SqlCommand cmd = new SqlCommand("Comments_GetAllByPostId", connection))
+        {
+          cmd.CommandType = System.Data.CommandType.StoredProcedure;
+          cmd.Parameters.AddWithValue("@PostId", postId);
+
+          connection.Open();
+          using (SqlDataReader reader = cmd.ExecuteReader())
+          {
+            if (reader.Read())
+            {
+              Comment comment = new Comment
+              {
+                CommentId = Convert.ToInt32(reader["CommentId"]),
+                CommentTitle = reader["CommentTitle"].ToString(),
+                Details = reader["Details"].ToString(),
+                PostId = Convert.ToInt32(reader["PostId"]),
+                UserId = Convert.ToInt32(reader["UserId"]),
+                InterestCount = new InterestCount
+                {
+                  Interested = Convert.ToInt32(reader["InterestedCount"]),
+                  NotInterested = Convert.ToInt32(reader["NotInterestedCount"])
+                }
+              };
+              comments.Add(comment);
+            }
+          }
+        }
+      }
+      return comments;
+    }
+
     public InterestCount GetInterestCount(int commentId)
     {
       InterestCount count = null;
