@@ -32,6 +32,7 @@ I have used Port and Adapters(Haxagonal) pattern, also attempted to use SOLID pr
         "UserId": 3,
         "Interest": false
         }
+- Comment: Read all comments of a post http://localhost:2500/api/comments/read/post/:postId
     
 #### Things to improve
 This is a list of things that I did here in a bad bad way that need to be improved.
